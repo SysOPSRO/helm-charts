@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: '{{ .Release.Name }}-webserver'
+  labels:
+    meta.helm.sh/component: webserver
+    meta.helm.sh/project: '{{ .Chart.Name }}'
+    meta.helm.sh/release: '{{ .Release.Name }}'
+    meta.helm.sh/resource: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      meta.helm.sh/component: webserver
+      meta.helm.sh/release: '{{ .Release.Name }}'
+      meta.helm.sh/resource: deployment
+  template:
+    metadata:
+      labels:
+        meta.helm.sh/component: webserver
+        meta.helm.sh/release: '{{ .Release.Name }}'
+        meta.helm.sh/resource: deployment
+    spec:
+      containers:
+        - name: webserver
+          image: '{{ .Values.repository.image }}{{ if ne .Values.repository.tag "" }}:{{ .Values.repository.tag }}{{ end }}'
+          ports:
+            - name: '{{ .Release.Name }}-webserver'
+              containerPort: 3000
+

@@ -1,0 +1,5 @@
+repository:
+  image: sysopsro/busybox-httpd
+  tag: ""
+
+ingress:

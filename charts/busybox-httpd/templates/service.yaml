@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: '{{ .Release.Name }}-webserver'
+  labels:
+    meta.helm.sh/component: webserver
+    meta.helm.sh/project: '{{ .Chart.Name }}'
+    meta.helm.sh/release: '{{ .Release.Name }}'
+spec:
+  selector:
+    meta.helm.sh/component: webserver
+    meta.helm.sh/release: '{{ .Release.Name }}'
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      name: {{ .Release.Name }}-webserver-3000
