@@ -3,12 +3,12 @@ entries:
   busybox-httpd:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2024-04-18T12:50:02.555606+03:00"
+    created: "2024-04-18T13:08:02.317182+03:00"
     description: A helm chart for busybox-httpd
-    digest: 64431871cf938210736ea73893d31734bf7e9622e65971f01ebb950fe8b31bdc
+    digest: 23c3544f00c05cf6cc75a704b3b5750f295a1dbcec79ba587ccd7b924d5ae8f1
     name: busybox-httpd
     type: application
     urls:
     - https://sysopsro.github.io/helm-charts/charts/busybox-httpd-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-18T12:50:02.555046+03:00"
+generated: "2024-04-18T13:08:02.3163+03:00"

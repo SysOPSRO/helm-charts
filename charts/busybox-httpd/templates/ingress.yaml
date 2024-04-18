@@ -1,11 +1,8 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "busybox-httpd.fullname" . -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
-  labels:
-{{ include "busybox-httpd.labels" . | indent 4 }}
+  name: {{ .Release.Name }}-webserver
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
