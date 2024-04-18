@@ -31,9 +31,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ .Release.Name }}-webserver
+                name: busybox-web
                 port:
-                  name: {{ .Release.Name }}-webserver-3000
+                  name: busybox-web
         {{- end }}
   {{- end }}
 {{- end }}

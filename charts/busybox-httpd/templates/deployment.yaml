@@ -25,6 +25,14 @@ spec:
         - name: webserver
           image: '{{ .Values.repository.image }}{{ if ne .Values.repository.tag "" }}:{{ .Values.repository.tag }}{{ end }}'
           ports:
-            - name: '{{ .Release.Name }}-webserver'
+            - name: busybox-web
               containerPort: 3000
+          {{- if .Values.volumes.enabled }}
+          volumeMounts:
+            {{ toYaml .Values.volumes.extraMounts | trim | nindent 12 }}
+          {{- end }}
+      {{- if .Values.volumes.enabled }}
+      volumes:
+        {{ toYaml .Values.volumes.extraVolumes | trim | nindent 8 }}
+      {{- end }}
 
